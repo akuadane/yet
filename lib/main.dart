@@ -21,16 +21,32 @@ class MapRoute extends StatefulWidget {
 class _MapRouteState extends State<MapRoute> {
   Position _position;
 
-  _getPostion() async {
+  Future<Position> _getPostion() async {
     _position = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+    return _position;
   }
 
   @override
   Widget build(BuildContext context) {
-    _getPostion();
     return Scaffold(
-      body: _getMap(context),
+      body: FutureBuilder(
+        future: _getPostion(),
+        builder: (context, snapshot) {
+          if (snapshot.data != null) {
+            return _getMap(context);
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                CircularProgressIndicator(),
+                Text("Fetching Location"),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -44,6 +60,15 @@ class _MapRouteState extends State<MapRoute> {
           target: LatLng(_position.latitude, _position.longitude),
           zoom: 18,
         ),
+        markers: {
+          Marker(
+            markerId: MarkerId("bishoftu"),
+            position: LatLng(_position.latitude, _position.longitude),
+            infoWindow: InfoWindow(title: "megabit 1 2012"),
+            icon:
+                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+          )
+        },
       ),
     );
   }

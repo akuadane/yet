@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "569217078115",
+    "firebase_url": "https://yet-278006.firebaseio.com",
+    "project_id": "yet-278006",
+    "storage_bucket": "yet-278006.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569217078115:android:0715008633fb40e69eb956",
+        "android_client_info": {
+          "package_name": "com.adane.akayou.yet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569217078115-08es7aopsgudv8jq3ptu4idahk5jctan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWqxbVIYYI0BQYv4tpMophD-9HRbR0pnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569217078115-08es7aopsgudv8jq3ptu4idahk5jctan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

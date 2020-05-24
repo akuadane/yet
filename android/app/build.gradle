@@ -38,6 +38,7 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
 
     }
 
@@ -49,7 +50,14 @@ android {
         }
     }
 }
+dependencies {
+    compile 'com.android.support:multidex:1.0.1' //enter the latest version
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+}
 
 flutter {
     source '../..'
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
